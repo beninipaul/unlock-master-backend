@@ -3,6 +3,8 @@ const bodyParser = require("body-parser");
 const dbConnect = require("./src/config/mongodb");
 require("dotenv").config();
 const roleRoutes = require("./src/routes/role.routes");
+const authRoutes = require("./src/routes/auth.routes");
+const userRoutes = require("./src/routes/user.routes");
 
 const app = express();
 
@@ -12,6 +14,8 @@ app.use(bodyParser.json());
 
 //Register the different routes
 app.use("/v1", roleRoutes);
+app.use("/v1", authRoutes);
+app.use("/v1", userRoutes);
 
 //Define ports number
 const PORT = process.env.SERVER_PORT || 4000;
