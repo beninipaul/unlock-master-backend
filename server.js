@@ -5,6 +5,7 @@ require("dotenv").config();
 const roleRoutes = require("./src/routes/role.routes");
 const authRoutes = require("./src/routes/auth.routes");
 const userRoutes = require("./src/routes/user.routes");
+const serviceRoutes = require("./src/routes/service.routes");
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(bodyParser.json());
 app.use("/v1", roleRoutes);
 app.use("/v1", authRoutes);
 app.use("/v1", userRoutes);
+app.use("/v1", serviceRoutes);
 
 //Define ports number
 const PORT = process.env.SERVER_PORT || 4000;
