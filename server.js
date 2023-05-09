@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const dbConnect = require("./src/config/mongodb");
+const cors = require('cors')
 require("dotenv").config();
 const roleRoutes = require("./src/routes/role.routes");
 const authRoutes = require("./src/routes/auth.routes");
@@ -12,6 +13,7 @@ const app = express();
 //Register some middlewares
 app.use(express.json());
 app.use(bodyParser.json());
+app.use(cors({ origin: "*" }))
 
 //Register the different routes
 app.use("/v1", roleRoutes);
