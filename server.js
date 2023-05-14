@@ -13,7 +13,7 @@ const app = express();
 //Register some middlewares
 app.use(express.json());
 app.use(bodyParser.json());
-app.use(cors({ origin: "*", credentials:true }))
+app.use(cors());
 
 //Register the different routes
 app.use("/v1", roleRoutes);
