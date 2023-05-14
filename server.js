@@ -15,6 +15,16 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(cors());
 
+// Add Access Control Allow Origin headers
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
+
 //Register the different routes
 app.use("/v1", roleRoutes);
 app.use("/v1", authRoutes);
